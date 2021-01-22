@@ -1,3 +1,11 @@
+/**
+ * This function checks for errors and blank cells in Google Sheets before making a duplicate.
+ * Make sure that "dataviz" is your first sheet when you import it to your dataviz tool.
+ *
+ * The function needs to be triggered with a Google Apps Scripts trigger
+ * at https://script.google.com/home/all
+ **/
+
 function backupIfNoError() {
   var ss = SpreadsheetApp.getActive();
   var sourceSheet = ss.getSheetByName("source"); // Source sheet name
@@ -11,7 +19,7 @@ function backupIfNoError() {
   var sourceValues = sourceRange.getValues();
   var sourceValuesA = sourceRangeA.getValues();  
   var sourceValuesB = sourceRangeB.getValues(); 
-  var errors = ["#REF!", "#N/A", "#VALUE!", "#DIV/0!", "#NAME?"]; // Array of errors (incomplete)
+  var errors = ["#REF!", "#N/A", "#VALUE!", "#DIV/0!", "#NAME?"]; // Array of errors (translate when neccessary if your local Google language is not English)
   for (var i = 0; i < sourceValues.length; i++) { // Iterate through all values in source range
     for (var j = 0; j < sourceValues[i].length; j++) {
       if (errors.includes(sourceValues[i][j])) return; // End execution if error found in a cell
