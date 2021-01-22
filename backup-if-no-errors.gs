@@ -11,8 +11,8 @@ function backupIfNoError() {
   var sourceSheet = ss.getSheetByName("source"); // Source sheet name
   var targetSheet = ss.getSheetByName("dataviz"); // Target sheet name
   var A1notation = "A1:E12"; // A1 notation of the source range (only for errors)
-  var A1notationA = "C2:C12"; // check empty cells in A
-  var A1notationB = "E2:E12"; // check empty cells in B
+  var A1notationA = "C2:C12"; // check empty cells in C
+  var A1notationB = "E2:E12"; // check empty cells in E
   var sourceRange = sourceSheet.getRange(A1notation);
   var sourceRangeA = sourceSheet.getRange(A1notationA);
   var sourceRangeB = sourceSheet.getRange(A1notationB);
